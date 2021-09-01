@@ -40,7 +40,7 @@ jobs:
   foo:
     executor: foo
     steps:
-    - foo
+    - foo-overwrite-app1-definitions
 version: "2.1"
 workflows:
   bar:

@@ -13,7 +13,7 @@ jobs:
   foo:
     executor: foo
     steps:
-      - foo
+      - foo-overwrite-app1-definitions
 workflows:
   build:
     jobs:
