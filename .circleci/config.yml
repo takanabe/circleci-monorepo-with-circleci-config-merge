@@ -30,21 +30,17 @@ jobs:
     executor: bar
     steps:
     - bar
-  foo:
-    executor: foo
-    steps:
-    - foo
-  test-circleci-config:
+  cat-config:
     docker:
     - image: alpine:3.12.1
     steps:
     - run:
-        command: apk add ca-certificates bash git curl
+        command: cat .circleci/config.yml
         name: setup
-    - checkout
-    - run:
-        command: bash ci/test-circleci-config.sh
-        name: test .circleci/config.yml
+  foo:
+    executor: foo
+    steps:
+    - foo
 version: "2.1"
 workflows:
   bar:
@@ -53,9 +49,9 @@ workflows:
   build:
     jobs:
     - bar
+    - cat-config
     - foo
     - foo
-    - test-circleci-config
   foo:
     jobs:
     - foo
