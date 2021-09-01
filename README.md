@@ -4,6 +4,33 @@ A test repository to try monorepo support using CircleCI with https://github.com
 
 This project is highly inspired by [Quipper's approach](https://quipper.hatenablog.com/entry/2020/12/01/080000).
 
+## Usage
+
+```
+make
+```
+
+The above command generates `.circleci/config.yml` from `.circleci/base-config.yml` and `circleci/config.yml` stored in each application directory.
+
+## Project structure
+
+
+```
+.
+├── .circleci
+│   ├── base-config.yml # base config for CircleCI
+│   └── config.yml      # generated config
+├── app1
+│   └── circleci
+│       └── config.yml  # CircleCI config for app1
+├── app2
+│   └── circleci
+│       └── config.yml  # CircleCI config for app2
+├── app3
+│   └── circleci
+│       └── config.yml  # CircleCI config for app3
+```
+
 
 ## Pros
 
