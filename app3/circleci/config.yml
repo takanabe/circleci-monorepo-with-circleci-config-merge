@@ -1,0 +1,23 @@
+---
+commands:
+  foo:
+    steps:
+      - run:
+          name: foo
+          command: echo foo
+executors:
+  foo:
+    docker:
+      - image: alpine:3.11.6
+jobs:
+  foo:
+    executor: foo
+    steps:
+      - foo
+workflows:
+  build:
+    jobs:
+      - foo
+  foo:
+    jobs:
+      - foo
